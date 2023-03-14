@@ -22,35 +22,50 @@ namespace rppg
     public partial class MainWindow : Window
     {
         private statsheet chara = new statsheet();
+        private Random rng = new Random();
         public MainWindow()
         {
             InitializeComponent();
-            statsheet stats = new statsheet();
-            //updatestats();
-            statsheet pal = new statsheet() { name = "hi" };
-            statsheet pal2 = new statsheet() { name = "hi 2" };
-            //chara.Partymembers.Add(pal);
-            //MessageBox.Show($"strenght: {stats.strength}");
+            updatestats();
+            int d1 = statsheet.Rolldice(2, 20);
+            int d2 = statsheet.Rolldice(1000, 8);
+            MessageBox.Show(d1.ToString());
+            MessageBox.Show(d2.ToString());
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void buttonUpdateName_Click(object sender, RoutedEventArgs e)
         {
             chara.name = textBoxName.Text;
-            chara.roll();
-            // MessageBox.Show(chara.name);
-            foreach (ItemsControl item in partylist.Items)
-            {
-                statsheet r = new statsheet()
-                { name = item.Content.ToString() };
+        }
 
-                chara.PartyMembers.Add(r);
-            }
+        private void buttonReroll_Click(object sender, RoutedEventArgs e)
+        {
+            chara.roll();
             updatestats();
-            foreach(statsheet r in chara.Partymembers)
+            double odds = .5;
+
+            chara.Partymembers.Clear();
+            foreach (ListBoxItem i in listPotentialMembers.Items)
             {
-                ListBoxItem
+                if (rng.NextDouble() > odds)
+                {
+                    statsheet r = new statsheet()
+                    { name = i.Content.ToString() };
+
+                    chara.Partymembers.Add(r);
+                }
             }
+
+            listPartyMembers.Items.Clear();
+            foreach (statsheet r in chara.Partymembers)
+            {
+                ListBoxItem i = new ListBoxItem();
+                i.Content = $"{r.name} STR: {r.strength} INT: {r.intelligence}";
+                listPartyMembers.Items.Add(i);
+            }
+
+
         }
 
         private void updatestats()

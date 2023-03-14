@@ -10,7 +10,6 @@ namespace rppg
     internal class statsheet// : INotifyPropertyChanged
     {
         #region fields
-        private CharacterClasses _characterClasses;
 
         #region stats
         private int _mindexerity = 1;
@@ -32,24 +31,26 @@ namespace rppg
         private int _charizzma;
         private int _maxcharizzma = 20;
         #endregion
-        private List<statsheet> Partymembers = new List<statsheet>;
-        private CharacterClasses _characterClasses = Class.None;
+        private List<statsheet> _partyMembers = new List<statsheet>();
+
+        private CharacterClasses _characterClass = CharacterClasses.None;
         private Random rng = new Random();
         #endregion
 
         #region properties
-        public CharacterClasses Class
-        {
-            get { return _characterClasses; }
-            set { _characterClasses = value; }
-        }
         public string name { get; set; }
         public long XP { get; set; }
         public int level { get; set; }
-        /*public int CharacterClasses Class
-            {
-                
-            }*/
+        public CharacterClasses Class
+        {
+            get { return _characterClass; }
+            set { _characterClass = value; }
+        }
+        public List<statsheet> Partymembers
+        {
+            get { return _partyMembers; }
+            set { _partyMembers = value; }
+        }
 
         public int strength { get { return _strength; } }
         public int dexerity { get { return _dexerity; } }
@@ -74,20 +75,28 @@ namespace rppg
             _dexerity = rng.Next(_mindexerity, _maxdexerity);
         }
 
-        public static int rolldice (int numberofdice, int numberofsides)
+        public static int Rolldice(int numberOfDice, int numberOfSides)
         {
+            Random r = new Random();
+            int total = 0;
 
+            for (int i = 0; i < numberOfDice; i++)
+            {
+                total += r.Next(1, numberOfSides + 1);
+            }
+
+            return total;
         }
     }
 
     public enum CharacterClasses
     {
-        none = 0,
-        clreic = 1,
-        rouge = 2,
-        tank = 3,
-        mage = 4,
-        barbarian = 5,
+        None = 0,
+        Clreic = 1,
+        Rouge = 2,
+        Tank = 3,
+        Mage = 4,
+        Barbarian = 5,
 
     }
 }

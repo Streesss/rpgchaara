@@ -7,27 +7,33 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="textBoxName" HorizontalAlignment="Center" Margin="0,78,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="120"/>
-        <Button Content="rerole" HorizontalAlignment="Center" Margin="0,275,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <TextBlock x:Name="strengthtext" HorizontalAlignment="Left" Margin="302,178,0,0" TextWrapping="Wrap" Text="strength" VerticalAlignment="Top"/>
-        <TextBlock x:Name="charizzmatext" HorizontalAlignment="Left" Margin="433,178,0,0" TextWrapping="Wrap" Text="charizzma" VerticalAlignment="Top"/>
-        <TextBlock x:Name="intelligencetext" HorizontalAlignment="Left" Margin="302,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="intelligence"/>
-        <TextBlock x:Name="wisdomtext" HorizontalAlignment="Left" Margin="433,227,0,0" TextWrapping="Wrap" Text="wisdom" VerticalAlignment="Top"/>
-        <TextBlock x:Name="lucktext" HorizontalAlignment="Left" Margin="433,123,0,0" TextWrapping="Wrap" Text="luck" VerticalAlignment="Top"/>
-        <TextBlock x:Name="dexeritytext" HorizontalAlignment="Left" Margin="302,227,0,0" TextWrapping="Wrap" Text="dexerity" VerticalAlignment="Top"/>
-        <TextBlock x:Name="strengthnumber" HorizontalAlignment="Left" Margin="370,178,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="charizzmanumber" HorizontalAlignment="Left" Margin="497,178,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="intelligencenumber" HorizontalAlignment="Left" Margin="370,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="0"/>
-        <TextBlock x:Name="wisdomnumber" HorizontalAlignment="Left" Margin="497,227,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="lucknumber" HorizontalAlignment="Left" Margin="497,123,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="dexeritynumber" HorizontalAlignment="Left" Margin="370,227,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
-        <ListBox x:Name="partylist" Margin="538,123,72,146">
-            <ListBoxItem Content="shreck"/>
-            <ListBoxItem Content="obama"/>
-            <ListBoxItem Content="goofy"/>
-            <ListBoxItem Content="boss baby"/>
-            <ListBoxItem Content="nor man"/>
+        <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Margin="41,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" AutomationProperties.HelpText="Enter Name"/>
+        <TextBlock HorizontalAlignment="Left" Margin="41,45,0,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top"/>
+        <Button x:Name="buttonUpdateName" Content="Update Name" HorizontalAlignment="Left" Margin="41,191,0,0" VerticalAlignment="Top" Width="94" Click="buttonUpdateName_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="41,102,0,0" TextWrapping="Wrap" Text="STR" VerticalAlignment="Top"/>
+        <TextBlock x:Name="strengthnumber" HorizontalAlignment="Left" Margin="75,102,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="41,123,0,0" TextWrapping="Wrap" Text="INT" VerticalAlignment="Top"/>
+        <TextBlock x:Name="intelligencenumber" HorizontalAlignment="Left" Margin="75,123,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="41,144,0,0" TextWrapping="Wrap" Text="DEX" VerticalAlignment="Top"/>
+        <TextBlock x:Name="dexeritynumber" HorizontalAlignment="Left" Margin="75,144,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="98,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="LU"/><Run Text="CK"/></TextBlock>
+        <TextBlock x:Name="lucknumber" HorizontalAlignment="Left" Margin="132,102,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="98,123,0,0" TextWrapping="Wrap" Text="WIS" VerticalAlignment="Top"/>
+        <TextBlock x:Name="wisdomnumber" HorizontalAlignment="Left" Margin="132,123,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="98,144,0,0" TextWrapping="Wrap" Text="CHR" VerticalAlignment="Top"/>
+        <TextBlock x:Name="charizzmanumber" HorizontalAlignment="Left" Margin="132,144,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+        <Button x:Name="buttonReroll" Content="Re-Roll" HorizontalAlignment="Left" Margin="163,191,0,0" VerticalAlignment="Top" Width="104" Click="buttonReroll_Click"/>
+        <ListBox x:Name="listPotentialMembers" Margin="302,66,361,219">
+            <ListBoxItem Content="krisprat" Background="#FFFF7171"/>
+            <ListBoxItem Content="potato" Background="#FFF5C56F"/>
+            <ListBoxItem Content="HARD DK" Background="#FF7FBFDA"/>
+            <ListBoxItem Content="spungbib" Background="#FF74FB88"/>
+            <ListBoxItem Content="goofy" Background="#FFFD70F8"/>
+            <ListBoxItem Content="BOSS baby" Background="#FF14981C" Selected="ListBoxItem_Selected"/>
         </ListBox>
-        <TextBlock x:Name="partytext" HorizontalAlignment="Left" Margin="595,102,0,0" TextWrapping="Wrap" Text="partymembers" VerticalAlignment="Top" RenderTransformOrigin="0.584,1.151"/>
+        <TextBlock HorizontalAlignment="Left" Margin="302,50,0,0" TextWrapping="Wrap" Text="Potential Party Members:" VerticalAlignment="Top"/>
+        <ListBox x:Name="listPartyMembers" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="466,67,119,219"/>
+        <TextBlock HorizontalAlignment="Left" Margin="466,51,0,0" TextWrapping="Wrap" Text="Party Members:" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>
